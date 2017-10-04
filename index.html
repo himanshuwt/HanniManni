@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".menu-btn").click(function(){
+        $(this).toggleClass('active');
+        $('.left-content').toggleClass('active');
+    });
+});
+</script>
+<style>
+html, body, .main-container {
+	height: 100%;
+}
+body {
+	background: #f7f7f7;
+}
+.left-panel {
+    height: 100%;
+    position: relative;
+    z-index: 9;
+}
+.trigger-panel {
+	display: block;
+	width: 82px;
+    height: 100%;
+    background: #fff;
+    border-right: 1px solid #e0e0e0;
+}
+.left-content {
+	width: 0px;
+    overflow: hidden;
+    height: 100%;
+    background: #fff;
+    transition: 0.3s ease;
+    padding: 0px;
+}
+.left-content.active {
+	width: 300px;
+    box-shadow: 2px 0px 5px 0 rgba(0,0,0,.16), 2px 0px 10px 0 rgba(0,0,0,.12);
+    padding: 50px;
+}
+.trigger-panel {
+	padding: 0 20px;
+}
+.right-side {
+	background: #f7f7f7;
+    height: 100%;
+    width: 50%;
+    padding: 50px;
+}
+.menu-btn {
+	width: 40px;
+    height: 35px;
+    display: block;
+    position: relative;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.menu-btn * {
+	pointer-events: none;
+}
+.menu-btn span {
+	display: block;
+	height: 4px;
+    background: #3b5998;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 16px;
+    opacity: 1;
+    transition: 0.3s ease;
+}
+.menu-btn:before {
+	content: " ";
+	display: block;
+	height: 4px;
+    background: #3b5998;
+    position: relative;
+    top: 0;
+    transition: 0.3s ease;
+    
+}
+.menu-btn:after {
+	content: " ";
+	display: block;
+	height: 4px;
+    background: #3b5998;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    transition: 0.3s ease;
+    
+}
+.menu-btn.active span {
+	opacity: 0;
+}
+.menu-btn.active:before {
+	top: 16px;
+    transform: rotate(45deg);
+}
+.menu-btn.active:after {
+	bottom: 16px;
+    transform: rotate(-45deg);
+}
+</style>
+
+</head>
+<body>
+  
+<div class="main-container">
+	<div class="left-panel pull-left">
+    	<div class="trigger-panel pull-left">
+    		<span class="menu-btn"><span></span></span>
+        </div>
+        <div class="left-content pull-left">
+        	<ul>
+            	<li>About</li>
+            	<li>Services</li>
+            	<li>Contact</li>
+            </ul>
+        </div>
+    </div>
+    <div class="right-side pull-left">
+    	<h1>
+        	HanniManni
+        </h1>
+        <p>
+        	Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
